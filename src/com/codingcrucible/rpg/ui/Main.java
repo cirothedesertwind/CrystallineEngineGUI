@@ -6,6 +6,8 @@
 
 package com.codingcrucible.rpg.ui;
 
+import com.codingcrucible.rpg.process.ProcessHandler;
+
 /**
  *
  * @author aurix
@@ -28,7 +30,35 @@ public class Main extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        MenuBar = new javax.swing.JMenuBar();
+        FileMenu = new javax.swing.JMenu();
+        EditMenu = new javax.swing.JMenu();
+        RunMenu = new javax.swing.JMenu();
+        RunGame = new javax.swing.JMenuItem();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        FileMenu.setText("File");
+        MenuBar.add(FileMenu);
+
+        EditMenu.setText("Edit");
+        MenuBar.add(EditMenu);
+
+        RunMenu.setText("Run");
+
+        RunGame.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F6, 0));
+        RunGame.setText("Run Game");
+        RunGame.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RunGameActionPerformed(evt);
+            }
+        });
+        RunMenu.add(RunGame);
+        RunGame.getAccessibleContext().setAccessibleName("");
+
+        MenuBar.add(RunMenu);
+
+        setJMenuBar(MenuBar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -38,11 +68,16 @@ public class Main extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 279, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void RunGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RunGameActionPerformed
+        // TODO add your handling code here:
+        ProcessHandler.initGame();
+    }//GEN-LAST:event_RunGameActionPerformed
 
     /**
      * @param args the command line arguments
@@ -80,5 +115,10 @@ public class Main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu EditMenu;
+    private javax.swing.JMenu FileMenu;
+    private javax.swing.JMenuBar MenuBar;
+    private javax.swing.JMenuItem RunGame;
+    private javax.swing.JMenu RunMenu;
     // End of variables declaration//GEN-END:variables
 }

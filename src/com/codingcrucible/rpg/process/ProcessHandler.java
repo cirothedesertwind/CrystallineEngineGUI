@@ -6,7 +6,6 @@
 package com.codingcrucible.rpg.process;
 
 import java.io.IOException;
-import java.io.OutputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -17,12 +16,9 @@ import java.util.logging.Logger;
 public class ProcessHandler {
 
     public static void initGame() {
-        ProcessBuilder pb = new ProcessBuilder("/usr/bin/java", "-jar", "/home/aurix/NetBeansProjects/RPGEngine/dist/RPGEngine.jar");
-        //pb.directory(new File("preferred/working/directory"));
+        ProcessBuilder pb = new ProcessBuilder("/usr/bin/java", "-jar", "dist/lib/RPGEngine.jar");
         try {
             Process p = pb.start();
-            OutputStream s = p.getOutputStream();
-            s.flush();
         } catch (IOException ex) {
             Logger.getLogger(ProcessHandler.class.getName()).log(Level.SEVERE, null, ex);
         }

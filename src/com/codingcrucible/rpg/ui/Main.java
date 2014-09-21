@@ -6,9 +6,7 @@
 
 package com.codingcrucible.rpg.ui;
 
-import com.codingcrucible.rpg.mock.MockFactory;
 import com.codingcrucible.rpg.process.ProcessHandler;
-import java.awt.Frame;
 import javax.swing.UIManager;
 
 /**

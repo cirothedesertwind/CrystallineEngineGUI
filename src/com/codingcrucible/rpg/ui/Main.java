@@ -7,6 +7,7 @@
 package com.codingcrucible.rpg.ui;
 
 import com.codingcrucible.rpg.process.ProcessHandler;
+import com.codingcrucible.rpg.tools.ConsoleWriter;
 import javax.swing.UIManager;
 
 /**
@@ -15,11 +16,14 @@ import javax.swing.UIManager;
  */
 public class Main extends javax.swing.JFrame {
 
+    private ConsoleWriter w;
+    
     /**
      * Creates new form Main
      */
     public Main() {
         initComponents();
+        w = new ConsoleWriter(ConsoleOutput);
     }
 
     /**
@@ -61,7 +65,7 @@ public class Main extends javax.swing.JFrame {
         jTabbedPane4 = new javax.swing.JTabbedPane();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        ConsoleOutput = new javax.swing.JTextArea();
         Menubar = new javax.swing.JMenuBar();
         FileMenu = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -200,10 +204,10 @@ public class Main extends javax.swing.JFrame {
 
         jSplitPane5.setTopComponent(jTabbedPane3);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jTextArea1.setText("Program output goes here...");
-        jScrollPane2.setViewportView(jTextArea1);
+        ConsoleOutput.setEditable(false);
+        ConsoleOutput.setColumns(20);
+        ConsoleOutput.setRows(5);
+        jScrollPane2.setViewportView(ConsoleOutput);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -216,7 +220,7 @@ public class Main extends javax.swing.JFrame {
             .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
         );
 
-        jTabbedPane4.addTab("tab1", jPanel3);
+        jTabbedPane4.addTab("Console", jPanel3);
 
         jSplitPane5.setRightComponent(jTabbedPane4);
 
@@ -347,7 +351,7 @@ public class Main extends javax.swing.JFrame {
 
     private void RunGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RunGameActionPerformed
         // TODO add your handling code here:
-        ProcessHandler.initGame();
+        ProcessHandler.initGame(w);
     }//GEN-LAST:event_RunGameActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
@@ -379,6 +383,7 @@ public class Main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextArea ConsoleOutput;
     private javax.swing.JMenu EditMenu;
     private javax.swing.JMenu FileMenu;
     private javax.swing.JMenuBar Menubar;
@@ -434,6 +439,5 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane4;
     private javax.swing.JTabbedPane jTabbedPane5;
     private javax.swing.JTabbedPane jTabbedPane6;
-    private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
 }

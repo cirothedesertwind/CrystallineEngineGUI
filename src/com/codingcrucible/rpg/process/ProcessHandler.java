@@ -5,6 +5,7 @@
  */
 package com.codingcrucible.rpg.process;
 
+import com.codingcrucible.rpg.tools.ConsoleWriter;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -15,7 +16,11 @@ import java.util.logging.Logger;
  */
 public class ProcessHandler {
 
-    public static void initGame() {
+    public static void initGame(ConsoleWriter w) {
+        w.println("Building...");
+        
+        
+        w.println("Executing...");
         ProcessBuilder pb = new ProcessBuilder("/usr/bin/java", "-jar", "dist/lib/RPGEngine.jar");
         try {
             Process p = pb.start();
